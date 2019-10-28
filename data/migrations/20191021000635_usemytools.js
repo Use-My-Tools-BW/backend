@@ -27,7 +27,7 @@ exports.up = function(knex) {
         tools.string('title').notNullable();
         tools.string('make').notNullable().defaultTo('unknown');
         tools.string('model').notNullable().defaultTo('unknown');
-        tools.string('description').notNullable();
+        tools.string('description', 1000).notNullable();
         tools.integer('category_id').references('id').inTable('categories').unsigned().notNullable();
         tools.integer('condition_id').unsigned().notNullable().references('id').inTable('conditions').onDelete('CASCADE').onUpdate('CASCADE');
         tools.integer('daily_cost').unsigned().notNullable();
